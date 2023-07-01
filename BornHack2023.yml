@@ -1,0 +1,26 @@
+# LabIX client list used for BornHack 2023. Used for automating route server config,
+#   ix-f schema export, IRRDB AS-Set update and website member list
+# More information here: https://ix.labitat.dk/bornhack/
+# Please see this for more info on the fields: https://github.com/labitat/labix/blob/main/ix_client.yml
+
+# ToDo: Automation for this config
+
+clients:
+# - asn: ....
+#   description: ...
+
+  - asn: 211153
+     description: "Emil Petersen - BH2023"
+     speed: 1000
+     already_present_in_labicolo: True #Not used in ix_client.yml
+     ip:
+       - "185.0.29.112"
+       - "2001:7f8:149:1ab::21:1153:2"
+     mac: "00:1e:06:45:38:09"
+     rs_peer: True
+     rs_config:
+       filtering:
+         irrdb:
+           as_sets:
+             - "RIPE::AS211153:AS-ALL"
+       16bit_mapped_asn: 64514
