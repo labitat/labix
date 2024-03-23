@@ -1,18 +1,19 @@
 ---
 - name: Copy apt sources list
-  copy:
+  ansible.builtin.copy:
     dest: '/etc/apt/sources.list'
     src: sources.list
     owner: root
     group: root
     mode: '0644'
 - name: Run apt update+upgrade
-  apt:
-    upgrade: yes
-    update_cache: yes
+  ansible.builtin.apt:
+    upgrade: true
+    update_cache: true
   register: apt_result
+
 - name: Log changed packages
-  debug:
+  ansible.builtin.debug:
     msg:
       '{% for line in apt_result.stdout_lines
       if "newly installed" in line%}
@@ -21,7 +22,7 @@
   when: apt_result.changed == true
 
 - name: Specific apt packages
-  apt:
+  ansible.builtin.apt:
     name:
       - python3-pip
       - python3-dev
@@ -32,4 +33,9 @@
       - git
       - bgpq4
       - bird2
+    state: latest
+
+- name: Update packages to latest
+  ansible.builtin.package:
+    name: "*"
     state: latest

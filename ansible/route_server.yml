@@ -1,4 +1,7 @@
 ---
-  - hosts: rs
-    roles:
-      - route_server
+- name: Route Server
+  hosts: route_server
+  roles:
+    - route_server
+  #vars:
+    #labix_rs_ansible_user: user

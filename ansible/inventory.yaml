@@ -1,3 +1,7 @@
-[rs]
 # Note that this requires you to setup an ~/.ssh/config that proxyjumps via the peeringlan
-labix_rs ansible_user=user
+
+#[rs]
+#labix_rs ansible_user=user
+
+route_server:
+  hosts: labix_route_server

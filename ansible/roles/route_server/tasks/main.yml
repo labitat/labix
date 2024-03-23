@@ -1,28 +1,47 @@
 ---
 - name: Ping host
-  ping:
-  tags: 
+  ansible.builtin.ping:
+  tags:
     - ping
 
-- import_tasks: interfaces.yml
+- name: Network Interfaces
+  ansible.builtin.import_tasks: interfaces.yml
+  become: true
   tags:
     - interfaces
     - deploy
-- import_tasks: apt.yml
+
+- name: Debian apt packages
+  ansible.builtin.import_tasks: apt.yml
+  become: true
   tags:
     - apt
     - deploy
-- import_tasks: bird.yml
-  tags: 
+
+- name: BIRD
+  ansible.builtin.import_tasks: bird.yml
+  become: true
+  tags:
     - bird
     - deploy
-- import_tasks: nftables.yml
+
+- name: Copy NFTables config
+  become: true
+  ansible.builtin.copy:
+    src: nftables.conf
+    dest: '/etc/nftables.conf'
+    owner: root
+    group: root
+    mode: '0644'
+  notify: reload nftables
   tags:
     - nftables
     - deploy
+
 - name: Reboot machine
-  reboot:
-  tags: 
+  become: true
+  ansible.builtin.reboot:
+  tags:
     - reboot
     - deploy
     - never
