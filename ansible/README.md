@@ -2,8 +2,7 @@
 
 ## Client Configuration
 
-The playbook for creating configurations on client updates is available with the
-command
+The playbook for creating configurations on client updates is available with the command
 
 ```bash
 ansible-playbook client_config.yml
@@ -11,22 +10,17 @@ ansible-playbook client_config.yml
 
 No Ansible tags are necessary.
 
-The playbook will check if ARouteServer has been initialised on the host machine
-under `~/arouteserver`. It will then copy the necessary configurations to that
-directory. These configurations have been created partially by hydrating jinja2
-templates from the `ix_client.yml` file.
+It is required that you change the name of `peeringdb_api.key.sample` to `peeringdbdb_api.key` and fill in the [API credentials from PeeringDB](https://docs.peeringdb.com/howto/api_keys/) to fetch data from PeeringDB.
 
-Afterwards, a virtual pip environment is initialised and requirements are
-installed. This environment is used to create `ixf.json` and `bird.conf`. The
-last part copies these back to the Ansible directory. Note: this could be
-changed to instead copy the files back to the `route_server` role, so they're
-instantly ready for deployment.
+The playbook will check if ARouteServer has been initialised on the host machine under `~/arouteserver`.
+It will then copy the necessary configurations to that directory. These configurations have been created partially by hydrating Jinja2 templates from the `ix_client.yml` file.
 
-A `members.md` file is also hydrated. Nothing is done with it. This should be
-used to deploy an update to the website, `ix.labitat.dk`.
+Afterwards, a virtual pip environment is initialised and requirements are installed. This environment is used to create `ixf.json` and `bird.conf`.
+The last part copies these back to the Ansible directory. Note: this could be changed to instead copy the files back to the `route_server` role, so they're instantly ready for deployment.
 
-As a final note: `ansible.cfg` no longer asks for the sudo password and will
-thus fail. This can be fixed by either supplying the `-k` flag when running that
+A `members.md` file is also hydrated. Nothing is done with it. This should be used to deploy an update to the website, `ix.labitat.dk`.
+
+As a final note: `ansible.cfg` no longer asks for the sudo password and will thus fail. This can be fixed by either supplying the `-k` flag when running that
 playbook or by uncommenting the lines.
 
 ## Route Server Deployment
