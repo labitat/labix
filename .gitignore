@@ -2,3 +2,4 @@ arouteserver/cache/
 bird.conf
 peeringdb_api.key
 .vscode/
+.cspell
