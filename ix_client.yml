@@ -7,7 +7,7 @@ clients:
     description: "Olivia Wenya"
     speed: 1000 # Mbit/s
     ip:
-      - "185.0.29.10" # Assign the next available IPv4 address yourself
+      - "185.0.29.10" # Only assign if you can announce IPv4. Choose next available within 185.0.29.0/26
       - "2001:7f8:149:1ab::19:9750:1" # Assign an IPv6 address with the following format: 2001:7f8:149:1ab::<asn>:<asn>:<router-number>
     mac: "d8:3a:dd:18:2e:7f" #MAC-address for filtering and loopback prevention
     rs_peer: True
@@ -49,26 +49,10 @@ clients:
             - "RIPE::AS211153:AS-ALL"
       16bit_mapped_asn: 64514
 
-  - asn: 207727
-    description: "Asbjorn Sloth Tonnesen trading as a5n"
-    speed: 1000
-    ip:
-      - "185.0.29.13"
-      - "2001:7f8:149:1ab::20:7727:1"
-    mac: "00:0d:b9:49:d3:d8"
-    rs_peer: True
-    rs_config:
-      filtering:
-        irrdb:
-          as_sets:
-            - "RIPE::AS-A5N"
-      16bit_mapped_asn: 64515
-
   - asn: 198275
     description: "Thomas Flummer"
     speed: 1000
     ip:
-      - "185.0.29.14"
       - "2001:7f8:149:1ab::19:8275:1"
     mac: "00:0D:B9:4A:E7:14"
     rs_peer: True
@@ -83,7 +67,6 @@ clients:
     description: "Overkill Consulting ApS"
     speed: 1000
     ip:
-      - "185.0.29.15"
       - "2001:7f8:149:1ab::19:8186:1"
     mac: "DC:A6:32:AD:3C:F5"
     rs_peer: True
@@ -93,6 +76,7 @@ clients:
           as_sets:
             - "RIPE::AS198186:AS-PRIMARY"
       16bit_mapped_asn: 64517
+
   - asn: 203105
     description: "Flimpie Ltd"
     speed: 1000
