@@ -3,51 +3,20 @@
 # Visit here for route server information: https://ix.labitat.dk/#route-server
 
 clients:
-  - asn: 199750
-    description: "Olivia Wenya"
-    speed: 1000 # Mbit/s
-    ip:
-      - "185.0.29.10" # Only assign if you can announce IPv4. Choose next available within 185.0.29.0/26
-      - "2001:7f8:149:1ab::19:9750:1" # Assign an IPv6 address with the following format: 2001:7f8:149:1ab::<asn>:<asn>:<router-number>
-    mac: "d8:3a:dd:18:2e:7f" #MAC-address for filtering and loopback prevention
-    rs_peer: True
-    rs_config: # Used for arouteserver config and are compatible its configuration options.
-      filtering:
-        irrdb:
-          as_sets:
-            - "RIPE::AS199750:AS-ALL" #AS-Set is required when registering as Route Server client
-                                    #Optionally prepend with IRRDB source, ex. RIPE
-      16bit_mapped_asn: 64512 #RFC 6996 Private ASNs. Required for 32-bit ASNs
-
-  - asn: 198886
-    description: "Daniel Brasholt"
-    speed: 1000
-    ip:
-      - "185.0.29.11"
-      - "2001:7f8:149:1ab::19:8886:1"
-    mac: "dc:a6:32:2b:ae:a1"
-    rs_peer: True
-    rs_config:
-      filtering:
-        irrdb:
-          as_sets:
-            - "RIPE::AS198886:AS-ALL"
-      16bit_mapped_asn: 64513
-
   - asn: 211153
     description: "Emil Petersen"
-    speed: 1000
+    speed: 1000 # Mbit/s
     ip:
-      - "185.0.29.12"
-      - "2001:7f8:149:1ab::21:1153:1"
-    mac: "00:1e:06:45:38:09"
+      - "2001:7f8:149:1ab::21:1153:1" # Assign an IPv6 address with the following format: 2001:7f8:149:1ab::<asn>:<asn>:<router-number>
+    mac: "00:1e:06:45:38:09" #MAC-address for filtering and loopback prevention
     rs_peer: True
-    rs_config:
+    rs_config: # Used for Arouteserver config and are compatible its configuration options.
       filtering:
         irrdb:
           as_sets:
-            - "RIPE::AS211153:AS-ALL"
-      16bit_mapped_asn: 64514
+            - "RIPE::AS211153:AS-ALL" #AS-Set is required when registering as Route Server client
+                                      #Optionally prepend with IRRDB source, ex. RIPE
+      16bit_mapped_asn: 64514 #RFC 6996 Private ASNs. Required for 32-bit ASNs
 
   - asn: 198275
     description: "Thomas Flummer"
@@ -63,31 +32,31 @@ clients:
             - "RIPE::AS198275:AS-ALL"
       16bit_mapped_asn: 64516
 
-  - asn: 198186
-    description: "Overkill Consulting ApS"
+  - asn: 198275
+    description: "Thomas Flummer"
     speed: 1000
     ip:
-      - "2001:7f8:149:1ab::19:8186:1"
-    mac: "DC:A6:32:AD:3C:F5"
+      - "2001:7f8:149:1ab::19:8275:1"
+    mac: "00:0D:B9:4A:E7:14"
     rs_peer: True
     rs_config:
       filtering:
         irrdb:
           as_sets:
-            - "RIPE::AS198186:AS-PRIMARY"
+            - "RIPE::AS198275:AS-ALL"
+      16bit_mapped_asn: 64516
+
+  - asn: 62113
+    description: "Kracon/Svenne"
+    speed: 1000
+    ip:
+      - "2001:7f8:149:1ab::62:113:1"
+    mac: "AAAA"
+    rs_peer: True
+    rs_config:
+      filtering:
+        irrdb:
+          as_sets:
+            - "RIPE::AS-KRACON"
       16bit_mapped_asn: 64517
 
-  - asn: 203105
-    description: "Flimpie Ltd"
-    speed: 1000
-    ip:
-      - "185.0.29.16"
-      - "2001:7f8:149:1ab::20:3105:1"
-    mac: "F2:03:10:5F:25:35"
-    rs_peer: True
-    rs_config:
-      filtering:
-        irrdb:
-          as_sets:
-            - "RIPE::AS203105:AS-FLIMPIE"
-      16bit_mapped_asn: 64518
