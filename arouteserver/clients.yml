@@ -12,47 +12,43 @@ clients:
   #  - "2001:db:1:1::22"
   #  16bit_mapped_asn: 64512
 
-  - asn: 199750
-    description: "Olivia Wenya"
-    16bit_mapped_asn: 64514
-    ip:
-      - "185.0.29.10"
-      - "2001:7f8:149:1ab::19:9750:1"
-    cfg:
-      gtsm: True
-      filtering:
-        irrdb:
-          as_sets:
-            - RIPE::AS199750:AS-ALL
-
-  - asn: 198886
-    description: "Daniel Brasholt"
-    16bit_mapped_asn: 64513
-    ip:
-      - "185.0.29.11"
-      - "2001:7f8:149:1ab::19:8886:1"
-    cfg:
-      gtsm: True
-      filtering:
-        irrdb:
-          as_sets:
-            - RIPE::AS198886:AS-ALL
-
   - asn: 211153
     description: "Emil Petersen"
-    16bit_mapped_asn: 64512
     ip:
-      - "185.0.29.12"
       - "2001:7f8:149:1ab::21:1153:1"
     cfg:
-      gtsm: True
+      gtsm: False
       filtering:
         irrdb:
           as_sets:
             - RIPE::AS211153:AS-ALL
+    16bit_mapped_asn: 64512
         #rpki:
         #  reject_invalid: True
         #max_prefix:
         #  action: "shutdown"
         #  peering_db:
         #    enabled: True
+
+  - asn: 198275
+    description: "Thomas Flummer"
+    ip:
+      - "2001:7f8:149:1ab::19:8275:1"
+    cfg:
+      gtsm: False
+      filtering:
+        irrdb:
+          as_sets:
+            - "RIPE::AS198275:AS-ALL"
+    16bit_mapped_asn: 64516
+
+  - asn: 62113
+    description: "Kracon/Svenne"
+    ip:
+      - "2001:7f8:149:1ab::6:2113:1"
+    cfg:
+      gtsm: False
+      filtering:
+        irrdb:
+          as_sets:
+            - "RIPE::AS-KRACON"

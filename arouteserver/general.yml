@@ -1,18 +1,18 @@
+# Arouteserver base config used to add clients at deployment
 cfg:
   rs_as: 60247
   router_id: 185.0.29.1
+  rfc8950: True
   filtering:
     next_hop:
       policy: strict
-    ipv4_pref_len:
-      max: 24
-      min: 8
+    # ipv4_pref_len:
+    #   max: 24
+    #   min: 8
     ipv6_pref_len:
       max: 48
       min: 12
     global_black_list_pref:
-    - prefix: 185.0.29.0
-      length: 24
     - prefix: '2001:7f8:149::'
       length: 48
     max_as_path_len: 32
@@ -45,7 +45,7 @@ cfg:
       use_rpki_roas_as_route_objects:
         enabled: true
       use_registrobr_bulk_whois_data:
-        enabled: true
+        enabled: false
     rpki_bgp_origin_validation:
       enabled: true
       reject_invalid: true
@@ -57,6 +57,10 @@ cfg:
       enabled: true
     reject_policy:
       policy: tag_and_reject
+  rpki_roas:
+    source: "ripe-rpki-validator-cache"
+    # source: '2001:7f8:149:1ab::6:2113:1'
+    ripe_rpki_validator_url: "http://[2001:7f8:149:1ab::6:2113:1]:8323/json"
   graceful_shutdown:
     enabled: true
   rfc1997_wellknown_communities:
