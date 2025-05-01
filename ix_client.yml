@@ -32,26 +32,12 @@ clients:
             - "RIPE::AS198275:AS-ALL"
       16bit_mapped_asn: 64516
 
-  - asn: 198275
-    description: "Thomas Flummer"
-    speed: 1000
-    ip:
-      - "2001:7f8:149:1ab::19:8275:1"
-    mac: "00:0D:B9:4A:E7:14"
-    rs_peer: True
-    rs_config:
-      filtering:
-        irrdb:
-          as_sets:
-            - "RIPE::AS198275:AS-ALL"
-      16bit_mapped_asn: 64516
-
   - asn: 62113
     description: "Kracon/Svenne"
     speed: 1000
     ip:
       - "2001:7f8:149:1ab::62:113:1"
-    mac: "AAAA"
+    mac: "9C:6B:00:64:4D:57"
     rs_peer: True
     rs_config:
       filtering:
@@ -59,4 +45,3 @@ clients:
           as_sets:
             - "RIPE::AS-KRACON"
       16bit_mapped_asn: 64517
-
